@@ -1,0 +1,21 @@
+.grid_cell {
+	background:#000;
+	color:white;	
+	display: inline-block;
+	border-radius: 30px;
+	width:30px;
+	height:30px;
+	padding:10px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.grid_cell_hover {
+	background: #DF0101;
+	color: #DF0101;
+}
+
+.grid_cont {
+	margin: 0 auto;
+	width: 800px; /* cell width * number of cells, (30+10+10) * 16 = 800 */
+}
