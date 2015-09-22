@@ -15,7 +15,18 @@
 	color: #DF0101;
 }
 
-.grid_cont {
+#grid_cont {
 	margin: 0 auto;
 	width: 800px; /* cell width * number of cells, (30+10+10) * 16 = 800 */
+}
+
+#button_cont {
+	margin: 0 auto;
+	padding: 30px;
+}
+
+#the_button {
+	display: table;
+	width: 600px;
+	margin: 0 auto;
 }
