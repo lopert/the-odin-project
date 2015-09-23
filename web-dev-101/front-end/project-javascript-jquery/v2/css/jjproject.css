@@ -1,0 +1,55 @@
+div {
+}
+
+body {
+	background-color: #EEE;
+	margin: auto 0;
+}
+
+button {
+	width: 150px;
+	height: 30px;
+}
+
+#title_cont {
+	width: 100%;
+	background-color: #000;
+	top: 0;
+	margin: 0;
+	height: 40px;
+	position: fixed;
+	color: #FFF;
+	float: left;
+	font-size: 125%;
+	vertical-align: middle;
+	line-height: 40px;
+	padding: 0 20px;
+}
+
+#button_cont {
+	position: relative;
+	background-color: #F00;
+	top: 50px;
+	margin: auto;
+	text-align: center;
+}
+
+#grid_cont {
+	width: 832px;
+	background-color: #AAF;
+	top: 60px;
+	margin:auto;
+	position: relative;
+}
+
+.grid_cell {
+	padding: 0px;
+	border: 1px solid white;
+	background-color: #000;
+	display: inline-block;
+}
+
+.grid_cell_hover {
+	background: #DF0101;
+	color: #DF0101;
+}

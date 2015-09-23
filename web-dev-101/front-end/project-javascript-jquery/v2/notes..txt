@@ -1,0 +1,2 @@
+Redo with cool etch a sketch as per this other student's solution.
+http://htmlpreview.github.io/?https://github.com/jason-ellis/etch-a-sketch/blob/master/etch.html
