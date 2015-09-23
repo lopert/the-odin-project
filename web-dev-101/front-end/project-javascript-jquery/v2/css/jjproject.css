@@ -51,5 +51,8 @@ button {
 
 .grid_cell_hover {
 	background: #DF0101;
-	color: #DF0101;
+}
+
+.grid_cell_game {
+	background: #0F0;
 }

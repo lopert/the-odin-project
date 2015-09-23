@@ -11,7 +11,8 @@ $(document).ready(function() {
 	$("#button_cont").html(
 		"<button id=\"mode1\" onclick=\"regenerate(1)\">Highlight</button>" +
 		"<button id=\"mode2\" onclick=\"regenerate(2)\">Shading</button>" +
-		"<button id=\"mode3\" onclick=\"regenerate(3)\">RNG</button>");
+		"<button id=\"mode3\" onclick=\"regenerate(3)\">RNG</button>" +
+		"<button id=\"mode4\" onclick=\"regenerate(4)\">Game</button>");
 	
 	// Generate the default grid
 	generate_grid(16,1);
@@ -29,7 +30,7 @@ function generate_grid(grid_size, mode) {
 
 	for (var i = 0; i < grid_size; i++) {
 		for (var j = 0; j < grid_size; j++) {
-			$the_grid.append("<div class=\"grid_cell\"></div>");
+			$the_grid.append("<div id=\"x" + i + "y" + j + "\" class=\"grid_cell\"></div>");
 		}
 	}
 
@@ -38,7 +39,8 @@ function generate_grid(grid_size, mode) {
 	$(".grid_cell").css("height", cell_size);
 	$(".grid_cell").css("width", cell_size);
 
-	$the_grid.css("height", cell_size * grid_size);
+	// Adjust grid height to compensate for lost pixels (rounding)
+	$the_grid.css("height", (Math.floor(cell_size)+2) * grid_size);
 
 	// Mode Behaviour	
 	if (mode == 1) { // Highlight mode
@@ -73,13 +75,33 @@ function generate_grid(grid_size, mode) {
 		);
 	}
 
+	else if (mode == 4) { // Game Mode
+	$(".grid_cell").click(
+		function() {
+			target_id = $(this).attr('id');
+
+			//Handle various cell id lengths
+			target_y_loc = target_id.indexOf("y");
+			target_x = parseInt(target_id.substring(1,target_y_loc));
+			target_y = parseInt(target_id.substring(target_y_loc + 1));
+			
+			// toggle the 8 adjacent cells
+			for (var i = -1; i <= 1; i++) {
+				for (var j = -1; j <= 1; j++) {
+					if (!((i == 0) && (j == 0))) $("#x"+(target_x+i)+"y"+(target_y+j)).toggleClass("grid_cell_game");
+				}
+			}
+
+		});
+	}
+
 }
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
+    var values = '0123456789ABCDEF'.split('');
     var color = '#';
     for (var i = 0; i < 6; i++ ) {
-       	color += letters[Math.floor(Math.random() * 16)];
+       	color += values[Math.floor(Math.random() * 16)];
     }
     return color;
 }; // end getRandomColor
